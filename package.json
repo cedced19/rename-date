@@ -7,6 +7,9 @@
     "type": "git",
     "url": "git://github.com/cedced19/rename-date"
   },
+  "scripts": {
+    "test": "mocha --timeout 20000"
+  },
   "keywords": [
     "rename",
     "date",
