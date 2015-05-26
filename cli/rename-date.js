@@ -17,7 +17,7 @@ if (program.check) {
 }
 
 var time = -new Date().getTime();
-require('./lib/rename')(process.cwd(), program.french);
+require('rename-date')(process.cwd(), program.french);
 time += new Date().getTime();
 if (time > 1000) {
   console.log('\x1B[32mDone ! It took: ' + time.toString() / 1000 + ' secondes.\x1B[39m');

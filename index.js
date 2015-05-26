@@ -2,9 +2,15 @@
 'use strict';
 var fs = require('fs'), 
     join = require('path').join, 
-    date = require('./date');
+    date = require('./lib/date');
 
 module.exports = function (root, french) {
+  if (french == undefined) french = false;
+  if (root == undefined) {
+      console.log('\x1B[31m Please define a path. \x1B[91m');
+      process.exit(1);
+  }
+  date.reset();
   var result = [];
   var queue = ['/'];
   while (queue.length) {

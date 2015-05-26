@@ -6,17 +6,36 @@ Rename all your photos with the modification date.
 [![NPM version](https://badge.fury.io/js/rename-date.svg)](http://badge.fury.io/js/rename-date)
 
 ```
-npm install -g rename-date
+npm install --save rename-date
 ```
 
-## Options
+## Example
 
+```js
+var renameDate = require('rename-date');
+
+renameDate(process.cwd(), false)
 ```
--h, --help                  output usage information
 
--V, --version               output the version number
+### Options
 
--c  --check         check if there are an update
+#### path
 
--f  --french         give the date in french date template
+*Required*  
+Type: `string`
+
+Define the path were there are images. 
+
+#### french patern
+
+*Required*  
+Type: `boolean`
+
+If it is true it will be generated the file `25-05-2015-0.jpg` instead of `05-25-2015-0.jpg`.
+
+## CLI
+
+```bash
+$ npm install -g rename-date-cli
+$ rename-date
 ```
