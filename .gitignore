@@ -3,3 +3,13 @@ cli/node_modules
 *.html
 *.jpg
 *.png
+desktop/node_modules
+desktop/tmp
+desktop/app/node_modules
+desktop/app/credits.html
+desktop/*.dll
+desktop/*.dat
+desktop/*.pak
+desktop/*.exe
+desktop/cache
+desktop/build

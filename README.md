@@ -39,3 +39,13 @@ If it is true it will be generated the file `25-05-2015-0.jpg` instead of `05-25
 $ npm install -g rename-date-cli
 $ rename-date
 ```
+
+## Desktop
+
+1. [Download for Windows](https://raw.githubusercontent.com/cedced19/rename-date/tree/master/desktop/dist/Windows.zip)
+2. Extract
+3. Execute `rename-date.exe`
+
+## Special thanks
+
+Because we don't say it enough: thanks you all my friends to help me (by ideas or moral support) to create all software I make everyday.

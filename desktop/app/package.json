@@ -1,0 +1,19 @@
+{
+  "name": "rename-date",
+  "main": "index.html",
+  "version": "0.0.0",
+  "single-instance": false,
+  "window": {
+    "title": "Rename date",
+    "icon": "favicon.png",
+    "width": 750,
+    "height": 650,
+    "min_width": 750,
+    "min_height": 650,
+    "toolbar": false
+  },
+  "chromium-args": "--child-clean-exit",
+  "dependencies": {
+    "rename-date": "0.0.1"
+  }
+}
