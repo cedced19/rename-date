@@ -5,6 +5,7 @@ cli/node_modules
 *.png
 !desktop/demo.png
 desktop/node_modules
+desktop/minified
 desktop/tmp
 desktop/app/node_modules
 desktop/app/credits.html

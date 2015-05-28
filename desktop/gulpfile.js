@@ -1,20 +1,68 @@
-var builder = require('node-webkit-builder');
-var gulp = require('gulp');
-var gutil = require('gulp-util');
-var zip = require('gulp-zip');
-var colors = require('colors');
+var builder = require('node-webkit-builder'),
+    gulp = require('gulp'),
+    gutil = require('gulp-util'),
+    zip = require('gulp-zip'),
+    colors = require('colors'),
+    useref = require('gulp-useref'),
+    gulpif = require('gulp-if'),
+    uglify = require('gulp-uglify'),
+    uncss = require('gulp-uncss'),
+    minifyCss = require('gulp-minify-css'),
+    htmlmin = require('gulp-htmlmin'),
+    fs = require('fs');
 
-gulp.task('install', function () {
-    require('child_process').exec('npm install', {cwd: './app'}, function (err, stdout, stderr) {
-        return true;
-    });
+gulp.task('copy-fonts', function() {  
+  gulp.src('app/vendor/fonts/*.*')
+    .pipe(gulp.dest('minified/vendor/fonts'));
 });
 
-gulp.task('nw', ['install'], function () {
+gulp.task('copy-favicon', function() {  
+  gulp.src('app/favicon.png')
+    .pipe(gulp.dest('minified'));
+});
+
+gulp.task('copy-package', function() {  
+  gulp.src('app/package.json')
+    .pipe(gulp.dest('minified'));
+});
+
+
+gulp.task('html', function () {
+    var assets = useref.assets();
+
+    return gulp.src('app/*.html')
+        .pipe(assets)
+        .pipe(gulpif('*.js', uglify()))
+        .pipe(gulpif('*.css', minifyCss()))
+        .pipe(assets.restore())
+        .pipe(useref())
+        .pipe(gulpif('*.html', htmlmin({collapseWhitespace: true})))
+        .pipe(gulp.dest('minified'));
+});
+
+gulp.task('css', ['html'], function () {
+    return gulp.src('minified/vendor/styles.css')
+        .pipe(uncss({
+            html: ['minified/index.html', 'minified/frenc.html']
+        }))
+        .pipe(minifyCss())
+        .pipe(gulp.dest('minified/vendor/'));
+});
+
+gulp.task('minify', ['css', 'copy-favicon', 'copy-fonts', 'copy-favicon', 'copy-package']);
+
+gulp.task('install', function () {
+    if (!fs.existsSync('minified/node_modules')) {
+        require('child_process').exec('npm install', {cwd: './minified'});
+    }
+});
+
+gulp.task('nw', ['minify', 'install'], function () {
 
     var nw = new builder({
-        files: './app/**/**',
-        platforms: ['win32', 'osx32', 'osx64', 'linux32', 'linux64']
+        files: ['./minified/**/**', '!./minified/vendor/css/*.css0'],
+        platforms: ['win32', 'osx32', 'osx64', 'linux32', 'linux64'],
+        winIco: './favicon.ico'
     });
 
     nw.on('log', function (msg) {

@@ -14,24 +14,34 @@ npm install --save rename-date
 ```js
 var renameDate = require('rename-date');
 
-renameDate(process.cwd(), false)
+renameDate(process.cwd(), false, function(err) {
+    if (!err) {
+     console.log('Done');
+    }
+});
 ```
 
 ### Options
 
 #### path
 
-*Required*  
+*Required*    
 Type: `string`
 
 Define the path were there are images. 
 
+
 #### french patern
 
-*Required*  
-Type: `boolean`
+Type: `boolean`  
+Default: `false`
 
 If it is true it will be generated the file `25-05-2015-0.jpg` instead of `05-25-2015-0.jpg`.
+
+#### callback
+
+Type: `function`
+
 
 ## CLI
 
@@ -42,7 +52,7 @@ $ rename-date
 
 ## Desktop
 
-1. [Download for Windows](https://raw.githubusercontent.com/cedced19/rename-date/tree/master/desktop/dist/Windows.zip)
+1. [Download for Windows](https://raw.githubusercontent.com/cedced19/rename-date/master/desktop/dist/Windows.zip)
 2. Extract
 3. Execute `rename-date.exe`
 

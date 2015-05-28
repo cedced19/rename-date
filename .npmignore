@@ -6,4 +6,5 @@ node_modules
 .gitignore
 .npmignore
 cli
+desktop
 test.js

@@ -1,12 +1,12 @@
 {
   "name": "rename-date-cli",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "Rename all your photos with the modification date with a CLI.",
   "main": "rename-date.js",
   "dependencies": {
     "check-update": "0.0.8",
     "commander": "^2.8.1",
-    "rename-date": "0.0.1"
+    "rename-date": "0.0.2"
   },
   "repository": {
     "type": "git",

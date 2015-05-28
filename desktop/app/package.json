@@ -6,14 +6,14 @@
   "window": {
     "title": "Rename date",
     "icon": "favicon.png",
-    "width": 750,
-    "height": 650,
-    "min_width": 750,
-    "min_height": 650,
+    "width": 450,
+    "height": 350,
+    "min_width": 450,
+    "min_height": 350,
     "toolbar": false
   },
   "chromium-args": "--child-clean-exit",
   "dependencies": {
-    "rename-date": "0.0.1"
+    "rename-date": "0.0.2"
   }
 }

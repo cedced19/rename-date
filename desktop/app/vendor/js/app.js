@@ -8,9 +8,10 @@ $(document).ready(function() {
     $('#exec').click(function() {
         var directory = path.normalize($('#path').val());
         if (fs.existsSync(directory)) {
-            rename(directory, $('#french').is(":checked"));
-            $('#success-modal').modal('show');
-            $('#modal').modal('toggle');
+            rename(directory, $('#french').is(":checked"), function() {
+                $('#success-modal').modal('show');
+                $('#modal').modal('toggle');
+            });
         } else {
             $('#error-modal').modal('show');
             $('#modal').modal('toggle');

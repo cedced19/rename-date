@@ -9,18 +9,18 @@ program.version(pkg.version)
     .parse(process.argv);
 
 if (program.check) {
-  require('check-update')({ packageName: pkg.name, packageVersion: pkg.version, isCLI: true}, function (err, latestVersion, defaultMessage) {
-    if (!err) {
-      console.log(defaultMessage);
-    }
-  });
+    require('check-update')({ packageName: pkg.name, packageVersion: pkg.version, isCLI: true}, function (err, latestVersion, defaultMessage) {
+        if (!err) {
+            console.log(defaultMessage);
+        }
+    });
 }
 
 var time = -new Date().getTime();
 require('rename-date')(process.cwd(), program.french);
 time += new Date().getTime();
 if (time > 1000) {
-  console.log('\x1B[32mDone ! It took: ' + time.toString() / 1000 + ' secondes.\x1B[39m');
+    console.log('\x1B[32mDone ! It took: ' + time.toString() / 1000 + ' secondes.\x1B[39m');
 } else {
-  console.log('\x1B[32mDone ! It took: ' + time.toString() + ' millisecondes.\x1B[39m');
+    console.log('\x1B[32mDone ! It took: ' + time.toString() + ' millisecondes.\x1B[39m');
 }

@@ -4,7 +4,7 @@ Rename all your photos with the modification date.
 
 ## Installation
 
-1. [Download for Windows](https://raw.githubusercontent.com/cedced19/rename-date/tree/master/desktop/dist/Windows.zip)
+1. [Download for Windows](https://raw.githubusercontent.com/cedced19/rename-date/master/desktop/dist/Windows.zip)
 2. Extract
 3. Execute `rename-date.exe`
 

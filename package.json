@@ -1,6 +1,6 @@
 {
   "name": "rename-date",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Rename all your photos with the modification date.",
   "main": "index.js",
   "repository": {
