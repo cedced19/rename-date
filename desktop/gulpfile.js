@@ -49,7 +49,7 @@ gulp.task('css', ['html'], function () {
         .pipe(gulp.dest('minified/vendor/'));
 });
 
-gulp.task('minify', ['css', 'copy-favicon', 'copy-fonts', 'copy-favicon', 'copy-package']);
+gulp.task('minify', ['css', 'copy-fonts', 'copy-favicon', 'copy-package']);
 
 gulp.task('install', function () {
     if (!fs.existsSync('minified/node_modules')) {
@@ -74,7 +74,25 @@ gulp.task('nw', ['minify', 'install'], function () {
     });
 });
 
-gulp.task('dist-win', ['nw'], function () {
+gulp.task('nw-win', ['minify', 'install'], function () {
+
+    var nw = new builder({
+        files: ['./minified/**/**', '!./minified/vendor/css/*.css0'],
+        platforms: ['win32'],
+        winIco: './favicon.ico'
+    });
+
+    nw.on('log', function (msg) {
+        gutil.log('\'' + 'node-webkit-builder'.cyan + '\':', msg);
+    });
+
+    return nw.build().catch(function (err) {
+        gutil.log('\'' + 'node-webkit-builder'.cyan + '\':', err);
+    });
+});
+
+
+gulp.task('dist-win', ['nw-win'], function () {
     return gulp.src('build/rename-date/win32/**/**')
         .pipe(zip('Windows.zip'))
         .pipe(gulp.dest('dist/'));

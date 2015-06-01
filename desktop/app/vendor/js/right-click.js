@@ -5,21 +5,21 @@ $(function() {
             menu = new gui.Menu(), 
 
             cut = new gui.MenuItem({
-                label: cutLabel || 'Cut', 
+                label: cutLabel, 
                 click: function() {
                     document.execCommand('cut');
                 }
             }), 
 
             copy = new gui.MenuItem({
-                label: copyLabel || 'Copy',
+                label: copyLabel,
                 click: function() {
                     document.execCommand('copy');
                 }
             }), 
 
             paste = new gui.MenuItem({
-                label: pasteLabel || 'Paste', 
+                label: pasteLabel, 
                 click: function() {
                     document.execCommand('paste');
                 }
@@ -32,10 +32,10 @@ $(function() {
         return menu;
     }
 
-    if (/french/.test(window.location)) {
+    if (/french.html/.test(window.location)) {
         var menu = new Menu('Couper', 'Copier', 'Coller');  
     } else {
-        var menu = new Menu();
+        var menu = new Menu('Cut', 'Copy', 'Paste');
     }
 
     $(document).on('contextmenu', function(e) {
