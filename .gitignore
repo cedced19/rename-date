@@ -1,6 +1,7 @@
 node_modules
 cli/node_modules
 *.html
+!desktop/app/index.html
 *.jpg
 *.png
 !desktop/demo.png
