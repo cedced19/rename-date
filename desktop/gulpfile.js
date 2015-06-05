@@ -43,7 +43,7 @@ gulp.task('html', function () {
 gulp.task('css', ['html'], function () {
     return gulp.src('minified/vendor/styles.css')
         .pipe(uncss({
-            html: ['minified/index.html', 'minified/frenc.html']
+            html: ['minified/index.html', 'minified/french.html']
         }))
         .pipe(minifyCss())
         .pipe(gulp.dest('minified/vendor/'));

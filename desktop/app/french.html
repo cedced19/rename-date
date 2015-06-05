@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Rename Date</title>
+        <!-- build:css vendor/css/styles.css -->
+        <link href="vendor/css/bootstrap.min.css" rel="stylesheet">
+        <link href="vendor/css/ripples.min.css" rel="stylesheet">
+        <link href="vendor/css/material-wfont.min.css" rel="stylesheet">
+        <!-- endbuild -->
+        <meta charset="utf-8">
+    </head>
+    <body>
+        <div class="container">
+            <h1>Rename Date</h1>
+            <p>Renommer toutes vos photos avec leurs dates de modifications.</p>
+            <div class="input-group">
+                <div class="form-group has-success">
+                    <input id="path" type="text" class="form-control" placeholder="Chemin">
+                </div> 
+                <div class="checkbox">
+                    <label>
+                        <input type="checkbox" id="french" checked> Système de date français
+                    </label>
+                </div>
+                <a data-target="#modal" data-toggle="modal" id="exec" class="btn btn-success">Exécuter</a>
+            </div>
+        </div>
+        <a class="btn btn-fab btn-material-grey-200" style="position:absolute; bottom:10px; right:10px;" href="./index.html"><i class="mdi-action-translate"></i></a>
+
+        <div class="modal" id="modal">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title">Information</h4>
+                    </div>
+                    <div class="modal-body">Cela va être fait rapidement.</div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Fermer</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal" id="error-modal">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title">Erreur</h4>
+                    </div>
+                    <div class="modal-body">Le chemin que vous avez donné n'est pas un dossier.</div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Fermer</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal" id="success-modal">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title">Succès</h4>
+                    </div>
+                    <div class="modal-body">Fini !</div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Fermer</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- build:js vendor/js/scripts.js -->
+        <script src="vendor/js/jquery.min.js"></script>
+        <script src="vendor/js/bootstrap.min.js"></script>
+        <script src="vendor/js/ripples.min.js"></script>
+        <script src="vendor/js/material.min.js"></script>
+        <script src="vendor/js/right-click.js"></script>
+        <script src="vendor/js/app.js"></script>
+        <!-- endbuild -->
+    </body>
+</html>
